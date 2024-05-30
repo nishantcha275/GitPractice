@@ -1,0 +1,54 @@
+﻿@model IEnumerable<StudentWebConsumeAPI.Models.StudentViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StdId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StdName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StdAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StdEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StdId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StdName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StdAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StdEmail)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StdId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StdId })
+                    @Html.ActionLink("Delete", "Delete", new { id=item.StdId })
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
